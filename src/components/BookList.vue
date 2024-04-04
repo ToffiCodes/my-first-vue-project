@@ -9,21 +9,25 @@
         </tr>
       </thead>
       <tbody>
-        <tr
+        <BookListRow
           v-for="book in books"
           :key="book.isbn"
+          :title="book.title"
+          :isbn="book.isbn"
           class="table-item__table-row"
-        >
-          <td>{{ book.title }}</td>
-          <td>{{ book.isbn }}</td>
-        </tr>
+        />
       </tbody>
     </table>
   </section>
 </template>
 
 <script>
+import BookListRow from "@/components/BookListRow.vue";
+
 export default {
+  components: {
+    BookListRow,
+  },
   data() {
     return {
       books: [
